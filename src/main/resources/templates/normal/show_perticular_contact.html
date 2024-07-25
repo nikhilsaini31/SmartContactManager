@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/normal_base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${title}">Document</title>
+</head>
+<body>
+
+	<section>
+
+		<div th:if="${contact}" class="card col-md-10 offset-1">
+			<div class="card-body">
+				<div class="container text-center">
+				
+					
+
+					<img alt="" src="" th:src="@{'/images/'+${contact.image}}"
+						style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
+
+					<h3 class="mt-3" > <span th:text="${contact.name}"></span> (<span th:text="${contact.secondName}"></span> )</h3>
+
+                     <div class="contact-table">
+                     
+                      	<table class="table">
+						  <thead>
+						    <tr>
+						      <th scope="col">#Id</th>
+						      <th scope="col">SCMUSER<span th:text="${contact.cid}"></span> </th>
+						      
+						    </tr>
+						  </thead>
+						  <tbody>
+						  
+						    <tr>
+						      <th scope="row">Email</th>
+						      <td th:text="${contact.email}"></td>
+						    </tr>
+						    
+						    <tr>
+						      <th scope="row">Phone</th>
+						      <td th:text="${contact.phone}"></td>
+						    </tr>
+						    
+						    <tr>
+						      <th scope="row">Work</th>
+						      <td th:text="${contact.work}"></td>
+						    </tr>
+						    						    
+						  </tbody>
+						  
+						</table>
+                      
+                        <div class="discription" th:text="${contact.description}"></div>
+                      
+                       <div class="actions mt-3 " style="display: flex; justify-content: center;" >
+                           <button th:onclick="|deleteContact(${contact.cid})|" class="btn btn-danger">Delete</button>
+                           
+						   <form method="post" th:action="@{'/user/update/'+${contact.cid}}">
+					         <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Update</button>  
+						   </form>
+                       </div>
+                      
+                     </div>
+                    
+				</div>
+			</div>
+		</div>
+		
+		<div th:unless="${contact}" class="else-body text-center" style="">
+		  <h1>oops!</h1>
+		  <h2>  Something went wrong</h2>
+		
+		</div>
+		
+	</section>
+
+
+
+</body>
+</html>

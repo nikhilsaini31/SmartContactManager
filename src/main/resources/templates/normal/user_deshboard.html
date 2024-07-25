@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/normal_base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${title}">Document</title>
+</head>
+<body>
+
+	<section>
+	
+	   <div class="container col-md-10 offset-1">
+	   	<div class="card">
+	   		<div class="card-body m-3">
+	   		 
+	   		 <div class="udimage text-center">
+	   		 	 <img alt="" src="" th:src="@{'/images/addcontact.png'}"
+						style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
+	   		 </div>
+	   		 
+	   		 <h2 class="text-center font-italic text-secondary mt-4">Start Adding Your Contact..</h2>
+	   		
+	   		<div class="abtn text-center mt-4">
+	   	   		<a th:href="@{/user/add-contact}" class=" btn btn-primary ">Add New Contact</a>
+	   		</div>
+	   		
+	   		<div class="profile-contect mt-3 text-center">
+	   		<p style="color: darkslategrey;">Welcome to the Smart Contact Manager App, your ultimate
+					solution for efficient contact management. <br /> Whether you're managing
+					personal relationships or professional connections, our app
+					empowers you to organize, update, and utilize your contacts with
+					ease.</p>
+	   		</div>
+	   		
+	   		</div>
+	   	</div>
+	   </div>
+	   
+	   <script type="text/javascript">
+	   
+	   		$(document).ready(()=>{
+	   			$(".item").removeClass("active");
+	   			$("#home-link").addClass("active");
+	   		});
+	   
+	   </script>
+	
+	</section>
+
+
+
+</body>
+</html>
